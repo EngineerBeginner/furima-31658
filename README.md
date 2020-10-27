@@ -11,14 +11,13 @@
 | first_name      | string | null: false               |
 | last_name_kana  | string | null: false               |
 | first_name_kana | string | null: false               |
-| birth_year      | date   | null: false               |
-| birth_month     | date   | null: false               |
-| birth_day       | date   | null: false               |
+| birth_date      | date   | null: false               |
 
 ### Association
 
 - has_many :products
 - has_one :address
+- has_many :purchases
 
 ## addresses テーブル
 
@@ -31,6 +30,7 @@
 | house_name    | string     | null: false                    |
 | phone_number  | integer    | null: false                    |
 | user          | references | null: false, foreign_key: true |
+| purchase      | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -49,6 +49,7 @@
 
 - belongs_to :product
 - has_one :address
+- belongs_to :user
 
 ## products テーブル
 
@@ -57,7 +58,6 @@
 | name          | string     | null: false                    |
 | description   | string     | null: false                    |
 | price         | integer    | null: false                    |
-| image_id      | integer    | null: false                    |
 | category_id   | integer    | null: false                    |
 | product_id    | integer    | null: false                    |
 | delivery_id   | integer    | null: false                    |
