@@ -28,7 +28,7 @@
 | house_number  | string     | null: false                    |
 | house_name    | string     |                                |
 | phone_number  | string     | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| purchase      | references | null: false, foreign_key: true |
 
 ### Association
 
