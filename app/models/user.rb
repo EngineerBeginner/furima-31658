@@ -12,7 +12,9 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: { case_sensitive: true }, format: { with: EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6}, format: { with: PASSWORD_REGEX }
-  validates :last_name, :first_name, presence: true, format: { with: NAME_REGEX }
-  validates :last_name_kana, :first_name_kana, presence: true, format: { with: NAME_KANA_REGEX }
+  with_options presence: true do
+    validates :last_name, :first_name, format: { with: NAME_REGEX }
+    validates :last_name_kana, :first_name_kana, format: { with: NAME_KANA_REGEX }
+  end
   validates :birth_date, presence: true
 end
